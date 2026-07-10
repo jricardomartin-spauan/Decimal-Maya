@@ -1,0 +1,22 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MayaMath v0.2</title>
+<style>
+body{font-family:Arial;background:#efe3c2;margin:0}header{background:#6b4f2a;color:#fff;padding:10px;text-align:center}
+main{max-width:700px;margin:auto;padding:15px}.c{background:#fff;border-radius:10px;padding:12px;margin:10px 0}
+.level{border:1px solid #999;min-height:48px;padding:4px;text-align:center;white-space:pre-line;font-size:28px}
+button{padding:8px 12px}
+</style><header><h2>MayaMath v0.2</h2></header><main>
+<div class=c><input id=n type=number min=0 max=7999 value=569><button onclick=show()>Convertir</button></div>
+<div class=c>
+<div>Nivel superior (400)</div><div id=l2 class=level></div>
+<div>Nivel medio (20)</div><div id=l1 class=level></div>
+<div>Nivel inferior (1)</div><div id=l0 class=level></div>
+<div id=exp></div></div>
+<script>
+function glyph(v){if(v==0)return "🐚";let b=Math.floor(v/5),d=v%5,s="";for(let i=0;i<d;i++)s+="•";if(d&&b)s+="\n";for(let i=0;i<b;i++)s+="════\n";return s.trim();}
+function show(){let x=+n.value;if(x<0||x>7999)return;
+let u=x%20,m=Math.floor(x/20)%20,s=Math.floor(x/400);
+l0.textContent=glyph(u);l1.textContent=glyph(m);l2.textContent=glyph(s);
+exp.textContent=`${x} = ${s}×400 + ${m}×20 + ${u}`;}
+show();
+</script></main></html>
